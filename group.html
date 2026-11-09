@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>집합교육 일정·신청 | 모든사람사회적협동조합</title>
+<meta name="description" content="여러 기관 종사자가 함께 듣는 공개 인권교육·역량강화 교육. 일정 확인과 온라인 신청.">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;900&family=Gowun+Batang:wght@700&display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#main">본문 바로가기</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><img src="img/logo.png" alt="모든사람사회적협동조합 홈으로" width="237" height="42"></a>
+    <button class="menu-btn" type="button" aria-controls="nav" aria-expanded="false" aria-label="메뉴 열기"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><path d="M3 6h16M3 11h16M3 16h16" stroke="#1A1D23" stroke-width="2" stroke-linecap="round"/></svg></button>
+    <nav class="nav" id="nav" aria-label="주 메뉴">
+      <a href="index.html#courses">교육과정</a>
+      <a href="group.html" aria-current="page">집합교육</a>
+      <a href="outreach.html">찾아가는 인권특강</a>
+      <a href="index.html#hrdp">인권컨설팅</a>
+      <a href="index.html#about">조합 소개</a>
+      <a class="cta" href="index.html#contact">교육 문의</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="bg-sand" style="padding-bottom:64px">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="kicker">OPEN CLASS</span>
+      <h1 class="h-display" style="font-size:clamp(32px,4.4vw,52px)">집합교육</h1>
+      <p class="lead">여러 기관 종사자가 한자리에 모여 함께 배우는 공개 교육입니다. 기관 단위 출강이 어려운 소규모 기관도 1명부터 신청할 수 있어요.</p>
+    </div>
+    <div class="grid g-auto-240">
+      <div class="card flat"><span style="font-size:14px;font-weight:700;color:var(--blue)">교육 장소</span><strong style="font-size:17px">회차별 안내</strong><span class="muted" style="font-size:14px">일정마다 장소를 함께 표시해요</span></div>
+      <div class="card flat"><span style="font-size:14px;font-weight:700;color:var(--orange)">신청 방법</span><strong style="font-size:17px">회차 선택 후 온라인 신청</strong><span class="muted" style="font-size:14px" data-site-row>전화 신청: <a data-site="phone" href="#"></a></span></div>
+      <div class="card flat"><span style="font-size:14px;font-weight:700;color:var(--green)">교육비 납부</span><strong style="font-size:17px">안내 문자의 계좌로 입금</strong><span class="muted" style="font-size:14px">입금 확인 시 접수 확정 · 기관 명의 납부 가능</span></div>
+      <div class="card flat" data-site-row><span style="font-size:14px;font-weight:700;color:var(--red)">수료 기준</span><strong style="font-size:17px" data-site="completion"></strong><span class="muted" style="font-size:14px">수료증은 교육 후 발급해요</span></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:64px">
+  <div class="wrap">
+
+    <!-- 일정 -->
+    <div id="viewList">
+      <div style="display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px">
+        <h2 class="h-section" style="font-size:clamp(24px,3vw,34px)">교육 일정</h2>
+        <div role="group" aria-label="월 선택" class="row-btns" id="months"></div>
+      </div>
+      <div class="stack" id="sessions" aria-live="polite"><div class="empty">일정을 불러오는 중이에요…</div></div>
+      <div class="note-box" style="margin-top:28px">
+        <span class="muted" style="font-size:15px">이미 신청하셨나요? 신청 내역 확인과 취소·변경 요청을 할 수 있어요.</span>
+        <button type="button" class="btn btn-ghost" id="toLookup">신청 내역 조회</button>
+      </div>
+    </div>
+
+    <!-- 신청서 -->
+    <div id="viewForm" hidden>
+      <div class="split" style="align-items:flex-start;gap:32px">
+        <aside class="card flat" style="flex:1 1 300px;background:var(--sand)">
+          <span style="font-size:14px;font-weight:700;color:var(--blue)">선택한 교육</span>
+          <strong style="font-size:20px;line-height:1.4" id="selTitle"></strong>
+          <span class="muted" style="font-size:15px;line-height:1.7" id="selInfo"></span>
+          <div><button type="button" class="btn btn-ghost" data-back style="margin-top:6px">← 다른 일정 고르기</button></div>
+        </aside>
+        <form class="form" id="applyForm" style="flex:2 1 520px" novalidate>
+          <h2 class="full" style="font-size:26px;font-weight:900">신청서 작성</h2>
+          <input type="hidden" name="회차ID" id="f-sid">
+          <input type="hidden" name="교육명" id="f-stitle">
+          <label class="field">이름<input name="이름" required autocomplete="name"></label>
+          <label class="field">휴대폰 번호<input name="휴대폰" type="tel" required autocomplete="tel" placeholder="010-0000-0000"></label>
+          <label class="field">소속 기관<input name="소속기관" required placeholder="예) ○○노인요양원"></label>
+          <label class="field">직종<select name="직종"><option>요양보호사</option><option>사회복지사</option><option>간호(조무)사</option><option>물리·작업치료사</option><option>시설장·관리자</option><option>기타</option></select></label>
+          <label class="field">이메일 <small>(선택)</small><input name="이메일" type="email" autocomplete="email"></label>
+          <label class="field">교육비 납부<select name="납부방식"><option>기관 명의 납부</option><option>개인 납부</option></select></label>
+          <label class="field full">계산서·영수증 받을 곳 <small>(기관 납부 시)</small><input name="계산서" placeholder="사업자등록번호 또는 담당자 이메일"></label>
+          <label class="agree full" style="background:var(--sand)"><input type="checkbox" name="개인정보동의" value="동의" required><span>교육 운영과 수료 관리를 위한 개인정보 수집·이용에 동의합니다. (수집 항목: 이름, 휴대폰 번호, 소속, 직종 · <span data-site-row>보유 기간: <span data-site="privacyGroup"></span></span>)</span></label>
+          <div class="msg full" role="status" aria-live="polite"></div>
+          <button class="btn btn-lg full" type="submit">신청하기</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- 접수 완료 -->
+    <div id="viewDone" hidden style="max-width:640px;margin:0 auto;text-align:center">
+      <div class="stack" style="align-items:center;gap:16px">
+        <div style="width:72px;height:72px;border-radius:999px;background:var(--green-tint);display:flex;align-items:center;justify-content:center"><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path d="M7 17l6 6 12-13" fill="none" stroke="#2F7323" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h2 style="font-size:30px;font-weight:900" tabindex="-1" id="doneTitle">신청이 접수되었어요</h2>
+        <p class="lead" id="doneInfo"></p>
+        <div class="card flat" style="background:var(--sand);text-align:left;width:100%;font-size:15px">
+          <span><strong>1.</strong> 접수 안내와 입금 계좌를 문자로 보내드려요.</span>
+          <span><strong>2.</strong> 입금이 확인되면 접수가 확정돼요.</span>
+          <span><strong>3.</strong> 교육 하루 전에 장소와 준비물을 다시 안내해 드려요.</span>
+        </div>
+        <div class="row-btns" style="justify-content:center"><button type="button" class="btn btn-ghost" data-back>다른 교육 보기</button></div>
+      </div>
+    </div>
+
+    <!-- 신청 내역 조회 -->
+    <div id="viewLookup" hidden style="max-width:760px;margin:0 auto">
+      <h2 style="font-size:28px;font-weight:900;margin-bottom:20px" tabindex="-1" id="lookupTitle">신청 내역 조회</h2>
+      <form class="form" id="lookupForm" style="align-items:end" novalidate>
+        <label class="field">이름<input name="name" required autocomplete="name"></label>
+        <label class="field">휴대폰 번호<input name="phone" type="tel" required autocomplete="tel"></label>
+        <button class="btn" type="submit" style="padding:15px;border-radius:12px;background:var(--ink)">조회</button>
+      </form>
+      <div class="stack" id="lookupResult" style="margin-top:20px" aria-live="polite"></div>
+      <p class="muted" style="font-size:14px;margin-top:16px" data-site-row>환불 기준: <span data-site="refund"></span></p>
+      <button type="button" class="btn btn-ghost" data-back style="margin-top:8px">← 교육 일정으로</button>
+    </div>
+
+  </div>
+</section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="stack" style="gap:4px">
+      <strong>모든사람사회적협동조합</strong>
+      <span>보건복지부 인가 사회적협동조합 · 경남 진주</span>
+      <span><span data-site-row>전화 <a data-site="phone" href="#"></a></span> <span data-site-row>· 이메일 <a data-site="email" href="#"></a></span></span>
+    </div>
+    <div class="dots" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/site.js"></script>
+<script src="js/group.js"></script>
+</body>
+</html>
